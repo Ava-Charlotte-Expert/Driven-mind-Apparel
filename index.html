@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Driven Mind Apparel — Discipline Over Motivation</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --black:#080808;
+  --dark:#111111;
+  --dark2:#1A1A1A;
+  --dark3:#222222;
+  --orange:#E8621A;
+  --orangeLight:#F07840;
+  --orangePale:#FFF0E8;
+  --white:#F5F5F0;
+  --muted:#888;
+  --ash:#BBBBBB;
+  --border:#2A2A2A;
+  --borderLight:#333;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Barlow',sans-serif;background:var(--dark);color:var(--white);line-height:1.6;overflow-x:hidden;}
+img{display:block;width:100%;height:100%;object-fit:cover;}
+a{text-decoration:none;color:inherit;}
+h1,h2,h3,h4{font-family:'Barlow Condensed',sans-serif;letter-spacing:.5px;}
+
+/* ── ANNOUNCE ── */
+.announce{background:var(--orange);color:#fff;text-align:center;padding:10px 20px;font-size:13px;letter-spacing:.8px;font-weight:500;}
+.announce strong{font-weight:700;}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:500;background:rgba(8,8,8,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 56px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.nav-logo{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:var(--white);letter-spacing:3px;text-transform:uppercase;line-height:1;}
+.nav-logo span{color:var(--orange);}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--ash);font-weight:600;transition:color .2s;}
+.nav-links a:hover{color:var(--orange);}
+.nav-right{display:flex;gap:18px;align-items:center;}
+.nav-ico{font-size:17px;cursor:pointer;color:var(--ash);transition:color .2s;}
+.nav-ico:hover{color:var(--orange);}
+.nav-bag{background:var(--orange);color:#fff;border:none;padding:9px 22px;font-family:'Barlow',sans-serif;font-size:12px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;font-weight:700;transition:background .2s;}
+.nav-bag:hover{background:var(--orangeLight);}
+
+/* ── HERO ── */
+.hero{position:relative;height:92vh;overflow:hidden;display:flex;align-items:center;}
+.hero-bg{position:absolute;inset:0;z-index:0;}
+.hero-bg img{filter:brightness(.45);}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(8,8,8,.85) 40%,transparent 100%);z-index:1;}
+.hero-content{position:relative;z-index:2;padding:0 80px;max-width:700px;}
+.hero-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.hero-tag::before{content:'';display:inline-block;width:28px;height:2px;background:var(--orange);}
+.hero-content h1{font-size:86px;line-height:.9;color:var(--white);font-weight:800;text-transform:uppercase;margin-bottom:6px;}
+.hero-content h1 .accent{color:var(--orange);}
+.hero-content h1 .sub{font-size:36px;font-weight:400;display:block;color:var(--ash);letter-spacing:4px;margin-top:8px;}
+.hero-desc{font-size:16px;color:var(--ash);line-height:1.75;max-width:420px;margin:24px 0 36px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-orange{background:var(--orange);color:#fff;border:none;padding:15px 36px;font-family:'Barlow',sans-serif;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-weight:700;transition:background .2s;}
+.btn-orange:hover{background:var(--orangeLight);}
+.btn-ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.3);padding:15px 36px;font-family:'Barlow',sans-serif;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-weight:600;transition:all .2s;}
+.btn-ghost:hover{border-color:var(--orange);color:var(--orange);}
+.hero-stats{display:flex;gap:40px;margin-top:52px;padding-top:36px;border-top:1px solid var(--border);}
+.hstat .num{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:800;color:var(--orange);}
+.hstat .lbl{font-size:11px;color:var(--muted);letter-spacing:.5px;margin-top:2px;}
+
+/* ── TRUST ── */
+.trust{background:var(--orange);display:flex;justify-content:center;gap:48px;padding:16px 48px;flex-wrap:wrap;}
+.trust-item{display:flex;align-items:center;gap:8px;color:#fff;font-size:13px;font-weight:500;}
+
+/* ── SHARED ── */
+section{padding:80px 64px;}
+.eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:10px;}
+.sec-title{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:800;color:var(--white);text-transform:uppercase;line-height:1;margin-bottom:10px;}
+.sec-sub{font-size:14px;color:var(--muted);max-width:480px;line-height:1.8;}
+.sec-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;}
+.view-all{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);font-weight:700;border-bottom:1px solid var(--orange);padding-bottom:2px;}
+
+/* ── SHOP BY CATEGORY ── */
+.cat-section{background:var(--black);padding:64px;}
+.cat-section .eyebrow,.cat-section .sec-title{text-align:center;}
+.cat-section .sec-title{margin-bottom:44px;}
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;}
+.cat-card{position:relative;cursor:pointer;overflow:hidden;}
+.cat-card .cat-img{aspect-ratio:.8;overflow:hidden;}
+.cat-card img{transition:transform .5s ease;filter:brightness(.7);}
+.cat-card:hover img{transform:scale(1.06);filter:brightness(.5);}
+.cat-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.85) 0%,transparent 60%);}
+.cat-label{position:absolute;bottom:0;left:0;right:0;padding:22px 18px;}
+.cat-label h3{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:var(--white);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.cat-label a{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);font-weight:700;}
+
+/* Row 2 of categories */
+.cat-grid2{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:3px;}
+
+/* ── PRODUCTS ── */
+.arrivals{background:var(--dark);}
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;}
+.prod-card{background:var(--dark2);cursor:pointer;}
+.prod-card:hover .prod-img img{transform:scale(1.06);}
+.prod-img{aspect-ratio:.8;overflow:hidden;position:relative;}
+.prod-img img{transition:transform .45s;filter:brightness(.8);}
+.badge{position:absolute;top:10px;left:10px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;}
+.b-new{background:var(--orange);color:#fff;}
+.b-hot{background:var(--white);color:var(--black);}
+.b-low{background:#E05A4A;color:#fff;}
+.b-drop{background:var(--dark3);color:var(--orange);border:1px solid var(--orange);}
+.prod-body{padding:14px 14px 18px;}
+.prod-body h4{font-size:14px;color:var(--white);font-weight:600;margin-bottom:6px;line-height:1.3;}
+.prod-sizes{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:10px;}
+.sz{font-size:9px;border:1px solid var(--border);padding:3px 7px;color:var(--muted);transition:all .2s;cursor:pointer;}
+.sz:hover{border-color:var(--orange);color:var(--orange);}
+.prod-footer{display:flex;justify-content:space-between;align-items:center;}
+.prod-price{font-size:15px;font-weight:700;color:var(--white);}
+.prod-price .old{font-size:12px;color:var(--muted);text-decoration:line-through;font-weight:400;margin-left:6px;}
+.add-btn{background:transparent;border:1px solid var(--border);color:var(--ash);font-family:'Barlow',sans-serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:7px 14px;cursor:pointer;font-weight:700;transition:all .2s;}
+.add-btn:hover{background:var(--orange);border-color:var(--orange);color:#fff;}
+
+/* ── BRAND FEATURE ── */
+.brand-feature{display:grid;grid-template-columns:1fr 1fr;min-height:560px;padding:0;}
+.bf-img{position:relative;overflow:hidden;}
+.bf-img img{filter:brightness(.65);}
+.bf-quote{position:absolute;bottom:40px;left:40px;right:40px;z-index:2;}
+.bf-quote blockquote{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:800;color:var(--white);text-transform:uppercase;line-height:1.1;letter-spacing:1px;}
+.bf-content{background:var(--dark2);display:flex;flex-direction:column;justify-content:center;padding:72px 60px;}
+.bf-content .sec-title{font-size:52px;}
+.bf-content p{font-size:15px;color:var(--muted);line-height:1.85;margin-bottom:14px;}
+
+/* ── DROPSHIP BANNER ── */
+.dropship-banner{background:var(--orange);padding:60px 64px;}
+.dropship-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.drop-text .sec-title{color:#fff;font-size:48px;}
+.drop-text p{color:rgba(255,255,255,.85);font-size:15px;line-height:1.8;margin-bottom:16px;}
+.drop-text .btn-dark{background:var(--black);color:#fff;border:none;padding:15px 36px;font-family:'Barlow',sans-serif;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-weight:700;}
+.drop-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.dstat{background:rgba(0,0,0,.25);padding:24px 20px;text-align:center;}
+.dstat .dn{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:800;color:#fff;}
+.dstat .dl{font-size:12px;color:rgba(255,255,255,.7);letter-spacing:.5px;margin-top:4px;}
+
+/* ── 5-COL VIBE ── */
+.vibe-section{background:var(--black);}
+.vibe-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin-top:40px;}
+.vibe-card{background:var(--dark2);cursor:pointer;}
+.vibe-card:hover .vibe-img img{transform:scale(1.07);}
+.vibe-img{aspect-ratio:.85;overflow:hidden;}
+.vibe-img img{transition:transform .45s;filter:brightness(.75);}
+.vibe-body{padding:12px 12px 16px;}
+.vibe-body h5{font-size:13px;color:var(--white);font-weight:600;margin-bottom:4px;}
+.vibe-body .vp{font-size:14px;font-weight:700;color:var(--white);margin-bottom:8px;}
+.vibe-add{width:100%;background:rgba(232,98,26,.12);border:1px solid rgba(232,98,26,.4);color:var(--orange);font-family:'Barlow',sans-serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:8px;cursor:pointer;font-weight:700;transition:all .2s;}
+.vibe-add:hover{background:var(--orange);border-color:var(--orange);color:#fff;}
+
+/* ── 3-BANNER ── */
+.banner3{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:0;}
+.b3{position:relative;aspect-ratio:.75;overflow:hidden;cursor:pointer;}
+.b3 img{transition:transform .5s;filter:brightness(.65);}
+.b3:hover img{transform:scale(1.05);}
+.b3-over{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.75) 0%,transparent 60%);}
+.b3-lbl{position:absolute;bottom:0;left:0;right:0;padding:28px 22px;}
+.b3-lbl h3{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
+.b3-btn{display:inline-block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.5);padding:7px 18px;transition:all .2s;}
+.b3:hover .b3-btn{background:var(--orange);border-color:var(--orange);}
+
+/* ── REVIEWS ── */
+.reviews{background:var(--dark);}
+.rev-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:36px;}
+.rstat{background:var(--dark2);padding:28px 20px;text-align:center;border-top:2px solid var(--orange);}
+.rstat .rn{font-family:'Barlow Condensed',sans-serif;font-size:48px;font-weight:800;color:var(--orange);}
+.rstat .rl{font-size:11px;color:var(--muted);letter-spacing:.5px;margin-top:4px;}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+.rev-card{background:var(--dark2);padding:28px;}
+.rev-stars{color:var(--orange);font-size:13px;letter-spacing:2px;margin-bottom:14px;}
+.rev-text{font-size:14px;color:var(--ash);line-height:1.8;font-style:italic;margin-bottom:18px;}
+.rev-author{display:flex;align-items:center;gap:12px;}
+.rev-av{width:38px;height:38px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;}
+.rev-name{font-size:13px;font-weight:600;color:var(--white);}
+.rev-tag{font-size:11px;color:var(--orange);}
+
+/* ── WHY US ── */
+.why-section{background:var(--dark2);padding:72px 64px;}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:48px;}
+.why-card{background:var(--dark3);border-top:2px solid var(--border);padding:32px 24px;text-align:center;transition:border-color .2s;}
+.why-card:hover{border-color:var(--orange);}
+.why-ico{font-size:30px;margin-bottom:14px;}
+.why-card h3{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
+.why-card p{font-size:13px;color:var(--muted);line-height:1.7;}
+
+/* ── SIZE GUIDE ── */
+.size-section{background:var(--black);}
+.size-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+.size-text p{font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:16px;}
+.size-wrap{background:var(--dark2);border:1px solid var(--border);padding:28px;}
+table.st{width:100%;border-collapse:collapse;font-size:13px;}
+table.st th{text-align:left;padding:10px 12px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);border-bottom:1px solid var(--border);}
+table.st td{padding:11px 12px;color:var(--ash);border-bottom:1px solid rgba(255,255,255,.04);}
+table.st tr:last-child td{border-bottom:none;}
+table.st tr:nth-child(even) td{background:rgba(255,255,255,.02);}
+
+/* ── INSTAGRAM ── */
+.insta-section{background:var(--dark);padding-bottom:0;}
+.insta-hdr{text-align:center;margin-bottom:6px;}
+.insta-handle{text-align:center;margin-bottom:32px;}
+.insta-handle a{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:2px;}
+.insta-handle p{font-size:13px;color:var(--muted);margin-top:4px;}
+.insta-grid{display:grid;grid-template-columns:repeat(6,1fr);}
+.icell{aspect-ratio:1;overflow:hidden;cursor:pointer;position:relative;}
+.icell img{transition:transform .4s;filter:brightness(.7);}
+.icell:hover img{transform:scale(1.1);filter:brightness(.4);}
+.icell-over{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:18px;opacity:0;transition:opacity .3s;color:#fff;}
+.icell:hover .icell-over{opacity:1;}
+
+/* ── EMAIL ── */
+.email-section{background:var(--dark2);padding:80px 64px;text-align:center;position:relative;overflow:hidden;}
+.email-section::before{content:'DRIVEN';font-family:'Barlow Condensed',sans-serif;font-size:280px;font-weight:800;color:rgba(232,98,26,.04);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);letter-spacing:-5px;white-space:nowrap;pointer-events:none;text-transform:uppercase;}
+.email-inner{max-width:520px;margin:0 auto;position:relative;z-index:1;}
+.email-inner .eyebrow{text-align:center;}
+.email-inner .sec-title{text-align:center;font-size:48px;}
+.email-inner p{font-size:15px;color:var(--muted);margin:12px 0 36px;line-height:1.8;}
+.email-form{display:flex;border:1px solid var(--border);}
+.email-input{flex:1;background:transparent;border:none;padding:15px 20px;font-size:14px;color:var(--white);font-family:'Barlow',sans-serif;outline:none;}
+.email-input::placeholder{color:var(--muted);}
+.email-submit{background:var(--orange);color:#fff;border:none;padding:15px 28px;font-family:'Barlow',sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-weight:700;white-space:nowrap;}
+
+/* ── FOOTER ── */
+footer{background:var(--black);border-top:1px solid var(--border);padding:64px 64px 28px;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+.footer-logo{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;color:var(--white);letter-spacing:3px;text-transform:uppercase;display:block;margin-bottom:12px;}
+.footer-logo span{color:var(--orange);}
+.footer-brand p{font-size:13px;color:var(--muted);line-height:1.85;max-width:230px;margin-bottom:16px;}
+.footer-social{display:flex;gap:8px;}
+.fsoc{width:34px;height:34px;background:var(--dark2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;cursor:pointer;color:var(--muted);transition:all .2s;}
+.fsoc:hover{background:var(--orange);border-color:var(--orange);color:#fff;}
+.footer-col h4{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:18px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col a{font-size:13px;color:var(--muted);transition:color .2s;}
+.footer-col a:hover{color:var(--orange);}
+.pay-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px;}
+.pay{background:var(--dark2);border:1px solid var(--border);padding:4px 10px;font-size:10px;color:var(--muted);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;font-size:12px;color:var(--muted);}
+.chat{position:fixed;bottom:28px;right:28px;background:var(--orange);color:#fff;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;z-index:999;box-shadow:0 4px 20px rgba(232,98,26,.4);transition:transform .2s;}
+.chat:hover{transform:scale(1.1);}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCE -->
+<div class="announce">SALE LIVE NOW: <strong>20% OFF EVERYTHING — Code: POWER20</strong> &nbsp;·&nbsp; Free Shipping on orders $75+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">DRIVEN <span>MIND</span></div>
+  <ul class="nav-links">
+    <li><a href="#">New Arrivals</a></li>
+    <li><a href="#">Men's</a></li>
+    <li><a href="#">Women's</a></li>
+    <li><a href="#">Collections</a></li>
+    <li><a href="#">Accessories</a></li>
+    <li><a href="#">Sale</a></li>
+    <li><a href="#">Manifesto</a></li>
+  </ul>
+  <div class="nav-right">
+    <span class="nav-ico">🔍</span>
+    <span class="nav-ico">♡</span>
+    <button class="nav-bag">Bag (0)</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding:0">
+  <div class="hero-bg"><img src="https://picsum.photos/seed/dm-hero/1600/900" alt="Hero"/></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-tag">Discipline Over Motivation</p>
+    <h1>BUILT<br/>UNDER<br/><span class="accent">PRESSURE.</span>
+    <span class="sub">MMXXVI ARENA COLLECTION</span></h1>
+    <p class="hero-desc">Premium athletic streetwear for the ones who show up anyway. Every piece designed to match the mindset — bold, relentless, built to last.</p>
+    <div class="hero-btns">
+      <button class="btn-orange">Shop Arena Collection</button>
+      <button class="btn-ghost">All Products</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="num">500+</div><div class="lbl">Products</div></div>
+      <div class="hstat"><div class="num">4.9★</div><div class="lbl">Avg. Rating</div></div>
+      <div class="hstat"><div class="num">2–7</div><div class="lbl">Day Shipping</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="trust-item">🚚 Free Shipping $75+</div>
+  <div class="trust-item">↩️ Free Replacement If Wrong/Damaged</div>
+  <div class="trust-item">⚡ Ships in 2–7 Business Days</div>
+  <div class="trust-item">🔒 Secure Checkout</div>
+  <div class="trust-item">💳 Shop Pay / Apple Pay / Google Pay</div>
+</div>
+
+<!-- SHOP BY CATEGORY — ROW 1 -->
+<section class="cat-section">
+  <p class="eyebrow">Browse by category</p>
+  <h2 class="sec-title">SHOP THE FULL RANGE</h2>
+  <div class="cat-grid">
+    <div class="cat-card">
+      <div class="cat-img"><img src="https://picsum.photos/seed/dm-mens-tee/500/625" alt="Men's Tees"/></div>
+      <div class="cat-overlay"></div>
+      <div class="cat-label"><h3>Men's Tees</h3><a href="#">Shop →</a></div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-img"><img src="https://picsum.photos/seed/dm-hoodies/500/625" alt="Hoodies"/></div>
+      <div class="cat-overlay"></div>
+      <div class="cat-label"><h3>Hoodies</h3><a href="#">Shop →</a></div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-img"><img src="https://picsum.photos/seed/dm-joggers/500/625" alt="Joggers"/></div>
+      <div class="cat-overlay"></div>
+      <div class="cat-label"><h3>Joggers</h3><a href="#">Shop →</a></div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-img"><img src="https://picsum.photos/seed/dm-shorts/500/625" alt="Shorts"/></div>
+      <div class="cat-overlay"></div>
+      <div class="cat-label"><h3>Shorts</h3><a href="#">Shop →</a></div>
+    </div>
+  </div>
+  <!-- ROW 2 -->
+  <div class="cat-grid2">
+    <div class="cat-card">
+      <div class="cat-img"><img src="https://picsum.photos/seed/dm-womens/500/400" alt="Women's"/></div>
+      <div class="cat-overlay"></div>
+      <div class="cat-label"><h3>Women's</h3><a href="#">Shop →</a></div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-img"><img src="https://picsum.photos/seed/dm-tanks/500/400" alt="Tank Tops"/></div>
+      <div class="cat-overlay"></div>
+      <div class="cat-label"><h3>Tank Tops</h3><a href="#">Shop →</a></div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-img"><img src="https://picsum.photos/seed/dm-hats/500/400" alt="Hats"/></div>
+      <div class="cat-overlay"></div>
+      <div class="cat-label"><h3>Hats</h3><a href="#">Shop →</a></div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-img"><img src="https://picsum.photos/seed/dm-accessories/500/400" alt="Accessories"/></div>
+      <div class="cat-overlay"></div>
+      <div class="cat-label"><h3>Accessories</h3><a href="#">Shop →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEW ARRIVALS — Own Brand Products -->
+<section class="arrivals">
+  <div class="sec-hdr">
+    <div><p class="eyebrow">Own brand — just dropped</p><h2 class="sec-title">NEW ARRIVALS</h2></div>
+    <a class="view-all" href="#">View All</a>
+  </div>
+  <div class="product-grid">
+    <div class="prod-card">
+      <div class="prod-img"><img src="https://picsum.photos/seed/dm-p1/500/630" alt="Non-Negotiable Tee"/><span class="badge b-new">New</span></div>
+      <div class="prod-body"><h4>#NON|NEGOTIABLE Graphic Tee — Train. Bleed. Repeat.</h4><div class="prod-sizes"><span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span><span class="sz">XXL</span></div><div class="prod-footer"><span class="prod-price">$33.00</span><button class="add-btn">Add</button></div></div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="https://picsum.photos/seed/dm-p2/500/630" alt="Arena Hoodie"/><span class="badge b-hot">Best Seller</span></div>
+      <div class="prod-body"><h4>MMXXVI Arena Issue Hoodie — Premium Pullover</h4><div class="prod-sizes"><span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span><span class="sz">XXL</span></div><div class="prod-footer"><span class="prod-price">$58.00</span><button class="add-btn">Add</button></div></div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="https://picsum.photos/seed/dm-p3/500/630" alt="DAMN Tee"/><span class="badge b-new">New</span></div>
+      <div class="prod-body"><h4>D.A.M.N. "Discipline Any Means Necessary" Graphic Tee</h4><div class="prod-sizes"><span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span></div><div class="prod-footer"><span class="prod-price">$33.00</span><button class="add-btn">Add</button></div></div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="https://picsum.photos/seed/dm-p4/500/630" alt="Women's Cropped Hoodie"/><span class="badge b-low">Low Stock</span></div>
+      <div class="prod-body"><h4>Women's Wear Your Discipline Cropped Hoodie</h4><div class="prod-sizes"><span class="sz">XS</span><span class="sz">S</span><span class="sz">M</span><span class="sz">L</span></div><div class="prod-footer"><span class="prod-price">$60.65</span><button class="add-btn">Add</button></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND STORY -->
+<section class="brand-feature" style="padding:0">
+  <div class="bf-img">
+    <img src="https://picsum.photos/seed/dm-brand/800/560" alt="Brand"/>
+    <div class="bf-quote"><blockquote>"Discipline isn't punishment. It's the highest form of self-respect."</blockquote></div>
+  </div>
+  <div class="bf-content">
+    <p class="eyebrow">The brand</p>
+    <h2 class="sec-title">BUILT FOR THE ONES WHO SHOW UP ANYWAY.</h2>
+    <p>Driven Mind Apparel was built for athletes, grinders, and anyone who knows that motivation fades — but discipline is forever. Every piece is a reminder: the work doesn't stop when it gets hard. That's when it starts.</p>
+    <p>Premium gear for the daily grind. Worn in the gym, on the street, and everywhere pressure meets purpose.</p>
+    <button class="btn-orange" style="margin-top:24px">Read the Manifesto →</button>
+  </div>
+</section>
+
+<!-- DROPSHIP BANNER -->
+<section class="dropship-banner" style="padding:60px 64px">
+  <div class="dropship-inner">
+    <div class="drop-text">
+      <p class="eyebrow" style="color:rgba(255,255,255,.7)">500+ products now available</p>
+      <h2 class="sec-title" style="color:#fff;font-size:48px;">YOUR FULL RANGE. YOUR BRAND. NO LIMITS.</h2>
+      <p>Our branded pieces are the anchor. The dropship range fills every category, size, and price point — all in one store, all under one name.</p>
+      <p>Shop Men's, Women's, Gym Gear, Accessories, Compression Wear and more — all curated to match the Driven Mind aesthetic.</p>
+      <button class="btn-dark">Browse All 500+ Products →</button>
+    </div>
+    <div class="drop-stats">
+      <div class="dstat"><div class="dn">500+</div><div class="dl">Total products</div></div>
+      <div class="dstat"><div class="dn">15+</div><div class="dl">Categories</div></div>
+      <div class="dstat"><div class="dn">2–7</div><div class="dl">Day shipping</div></div>
+      <div class="dstat"><div class="dn">0</div><div class="dl">Upfront inventory cost</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DROPSHIP PRODUCTS — Men's Section -->
+<section class="arrivals" style="background:#111;">
+  <div class="sec-hdr">
+    <div><p class="eyebrow">Expanded men's range</p><h2 class="sec-title">MEN'S COLLECTION</h2></div>
+    <a class="view-all" href="#">View All Men's</a>
+  </div>
+  <div class="product-grid">
+    <div class="prod-card">
+      <div class="prod-img"><img src="https://picsum.photos/seed/dm-men1/500/630" alt="Men's Jogger"/><span class="badge b-drop">New In</span></div>
+      <div class="prod-body"><h4>Men's Athletic Joggers — Tapered Fit Sweatpants</h4><div class="prod-sizes"><span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span><span class="sz">XXL</span></div><div class="prod-footer"><span class="prod-price">$48.00</span><button class="add-btn">Add</button></div></div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="https://picsum.photos/seed/dm-men2/500/630" alt="Men's Shorts"/><span class="badge b-drop">New In</span></div>
+      <div class="prod-body"><h4>Men's Training Shorts — 7" Gym Performance</h4><div class="prod-sizes"><span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span></div><div class="prod-footer"><span class="prod-price">$36.00</span><button class="add-btn">Add</button></div></div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="https://picsum.photos/seed/dm-men3/500/630" alt="Men's Long Sleeve"/><span class="badge b-drop">New In</span></div>
+      <div class="prod-body"><h4>Men's Long Sleeve Compression Training Shirt</h4><div class="prod-sizes"><span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span><span class="sz">XXL</span></div><div class="prod-footer"><span class="prod-price">$42.00</span><button class="add-btn">Add</button></div></div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="https://picsum.photos/seed/dm-men4/500/630" alt="Men's Zip Hoodie"/><span class="badge b-drop">New In</span></div>
+      <div class="prod-body"><h4>Men's Full-Zip Athletic Hoodie — Fleece Lined</h4><div class="prod-sizes"><span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span></div><div class="prod-footer"><span class="prod-price">$72.00</span><button class="add-btn">Add</button></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WOMEN'S SECTION -->
+<section class="arrivals" style="background:var(--dark);">
+  <div class="sec-hdr">
+    <div><p class="eyebrow">Women's full range</p><h2 class="sec-title">WOMEN'S COLLECTION</h2></div>
+    <a class="view-all" href="#">View All Women's</a>
+  </div>
+  <div class="product-grid">
+    <div class="prod-card">
+      <div class="prod-img"><img src="https://picsum.photos/seed/dm-w1/500/630" alt="Women's Tank"/><span class="badge b-new">Own Brand</span></div>
+      <div class="prod-body"><h4>Women's Wear Your Discipline Racerback Tank</h4><div class="prod-sizes"><span class="sz">XS</span><span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span></div><div class="prod-footer"><span class="prod-price">$22.50</span><button class="add-btn">Add</button></div></div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="https://picsum.photos/seed/dm-w2/500/630" alt="Women's Leggings"/><span class="badge b-drop">New In</span></div>
+      <div class="prod-body"><h4>Women's High-Waist Performance Leggings</h4><div class="prod-sizes"><span class="sz">XS</span><span class="sz">S</span><span class="sz">M</span><span class="sz">L</span></div><div class="prod-footer"><span class="prod-price">$52.00</span><button class="add-btn">Add</button></div></div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="https://picsum.photos/seed/dm-w3/500/630" alt="Women's Sports Bra"/><span class="badge b-drop">New In</span></div>
+      <div class="prod-body"><h4>Women's Medium-Support Sports Bra — Breathable</h4><div class="prod-sizes"><span class="sz">XS</span><span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span></div><div class="prod-footer"><span class="prod-price">$34.00</span><button class="add-btn">Add</button></div></div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="https://picsum.photos/seed/dm-w4/500/630" alt="Women's Joggers"/><span class="badge b-drop">New In</span></div>
+      <div class="prod-body"><h4>Women's Slim Fit Athletic Joggers — Fleece</h4><div class="prod-sizes"><span class="sz">XS</span><span class="sz">S</span><span class="sz">M</span><span class="sz">L</span></div><div class="prod-footer"><span class="prod-price">$48.00</span><button class="add-btn">Add</button></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP THE VIBE — Accessories -->
+<section class="vibe-section">
+  <div class="sec-hdr">
+    <div><p class="eyebrow">Complete the look</p><h2 class="sec-title">GEAR & ACCESSORIES</h2></div>
+    <a class="view-all" href="#">View All</a>
+  </div>
+  <div class="vibe-grid">
+    <div class="vibe-card"><div class="vibe-img"><img src="https://picsum.photos/seed/dm-acc1/400/480" alt="Trucker Hat"/></div><div class="vibe-body"><h5>DRIVEN Trucker Hat — Mesh Back</h5><div class="vp">$28.00</div><button class="vibe-add">Add to Bag</button></div></div>
+    <div class="vibe-card"><div class="vibe-img"><img src="https://picsum.photos/seed/dm-acc2/400/480" alt="Gym Bag"/></div><div class="vibe-body"><h5>Performance Gym Duffel Bag</h5><div class="vp">$52.00</div><button class="vibe-add">Add to Bag</button></div></div>
+    <div class="vibe-card"><div class="vibe-img"><img src="https://picsum.photos/seed/dm-acc3/400/480" alt="Wristbands"/></div><div class="vibe-body"><h5>Athletic Wristbands — 3 Pack</h5><div class="vp">$14.00</div><button class="vibe-add">Add to Bag</button></div></div>
+    <div class="vibe-card"><div class="vibe-img"><img src="https://picsum.photos/seed/dm-acc4/400/480" alt="Compression Sleeves"/></div><div class="vibe-body"><h5>Compression Arm Sleeves</h5><div class="vp">$22.00</div><button class="vibe-add">Add to Bag</button></div></div>
+    <div class="vibe-card"><div class="vibe-img"><img src="https://picsum.photos/seed/dm-acc5/400/480" alt="Gym Socks"/></div><div class="vibe-body"><h5>Performance Athletic Socks — 3 Pair</h5><div class="vp">$18.00</div><button class="vibe-add">Add to Bag</button></div></div>
+  </div>
+</section>
+
+<!-- 3 BANNER -->
+<div class="banner3">
+  <div class="b3"><img src="https://picsum.photos/seed/dm-look1/500/660" alt="Arena Collection"/><div class="b3-over"></div><div class="b3-lbl"><h3>Arena Collection</h3><a class="b3-btn" href="#">Shop Now</a></div></div>
+  <div class="b3"><img src="https://picsum.photos/seed/dm-look2/500/660" alt="Flagship"/><div class="b3-over"></div><div class="b3-lbl"><h3>Flagship Collection</h3><a class="b3-btn" href="#">Shop Now</a></div></div>
+  <div class="b3"><img src="https://picsum.photos/seed/dm-look3/500/660" alt="Sale"/><div class="b3-over"></div><div class="b3-lbl"><h3>Sale — 20% Off</h3><a class="b3-btn" href="#">Shop Sale</a></div></div>
+</div>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="sec-hdr">
+    <div><p class="eyebrow">Community</p><h2 class="sec-title">WHAT THE DRIVEN SAY</h2></div>
+  </div>
+  <div class="rev-stats">
+    <div class="rstat"><div class="rn">4.9</div><div class="rl">Average Rating</div></div>
+    <div class="rstat"><div class="rn">500+</div><div class="rl">Happy Customers</div></div>
+    <div class="rstat"><div class="rn">98%</div><div class="rl">Would Buy Again</div></div>
+  </div>
+  <div class="rev-grid">
+    <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"The Arena hoodie is insane quality. Wore it to every morning session this month. The message hits different when you're actually in the grind."</p><div class="rev-author"><div class="rev-av">MT</div><div><div class="rev-name">Marcus T.</div><div class="rev-tag">Verified Buyer</div></div></div></div>
+    <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Fit is perfect and the graphics are clean. Love that these aren't the same motivation quotes you see everywhere — this brand actually means something."</p><div class="rev-author"><div class="rev-av">JR</div><div><div class="rev-name">Jordan R.</div><div class="rev-tag">Verified Buyer</div></div></div></div>
+    <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Fast shipping, the tee quality is premium, and the cropped hoodie for women fits beautifully. Ordered twice already and will keep coming back."</p><div class="rev-author"><div class="rev-av">KS</div><div><div class="rev-name">Kezia S.</div><div class="rev-tag">Verified Buyer</div></div></div></div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section">
+  <p class="eyebrow">Why Driven Mind</p>
+  <h2 class="sec-title">BUILT DIFFERENT. MADE RIGHT.</h2>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-ico">✅</div><h3>True to Size Fit</h3><p>Size up for oversized. Every garment described accurately so you know exactly what you're getting.</p></div>
+    <div class="why-card"><div class="why-ico">📦</div><h3>Made to Order</h3><p>Ships in 2–7 business days. Every piece made fresh — no dead stock, no waste.</p></div>
+    <div class="why-card"><div class="why-ico">🔄</div><h3>Free Replacement</h3><p>If anything arrives damaged or wrong, we replace it — no questions, no hassle.</p></div>
+    <div class="why-card"><div class="why-ico">💬</div><h3>Real Support</h3><p>Actual human support that answers fast. Not a bot, not a ticket queue — real help.</p></div>
+  </div>
+</section>
+
+<!-- SIZE GUIDE -->
+<section class="size-section">
+  <div class="size-inner">
+    <div class="size-text">
+      <p class="eyebrow">Get the right fit</p>
+      <h2 class="sec-title">SIZE GUIDE</h2>
+      <p>Our athletic gear is cut for a confident, functional fit. Size up one for a relaxed oversized look. All measurements are in inches.</p>
+      <p>Not sure? Our team responds fast — reach out before you order and we'll sort it for you.</p>
+      <button class="btn-orange" style="margin-top:16px">Contact Us About Sizing</button>
+    </div>
+    <div class="size-wrap">
+      <table class="st">
+        <thead><tr><th>Size</th><th>Chest</th><th>Waist</th><th>Hip</th><th>Length</th></tr></thead>
+        <tbody>
+          <tr><td>XS</td><td>32–34"</td><td>26–28"</td><td>34–36"</td><td>26"</td></tr>
+          <tr><td>S</td><td>35–37"</td><td>29–31"</td><td>37–39"</td><td>27"</td></tr>
+          <tr><td>M</td><td>38–40"</td><td>32–34"</td><td>40–42"</td><td>28"</td></tr>
+          <tr><td>L</td><td>41–43"</td><td>35–37"</td><td>43–45"</td><td>29"</td></tr>
+          <tr><td>XL</td><td>44–46"</td><td>38–40"</td><td>46–48"</td><td>30"</td></tr>
+          <tr><td>XXL</td><td>47–49"</td><td>41–43"</td><td>49–51"</td><td>31"</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="insta-section">
+  <div class="insta-hdr"><p class="eyebrow" style="text-align:center">Follow the movement</p></div>
+  <div class="insta-handle"><a href="#">@DRIVENMINDAPPRL</a><p>Tag us in your fit — #DisciplineOverMotivation</p></div>
+  <div class="insta-grid">
+    <div class="icell"><img src="https://picsum.photos/seed/dm-ig1/300/300" alt="IG"/><div class="icell-over">📸</div></div>
+    <div class="icell"><img src="https://picsum.photos/seed/dm-ig2/300/300" alt="IG"/><div class="icell-over">📸</div></div>
+    <div class="icell"><img src="https://picsum.photos/seed/dm-ig3/300/300" alt="IG"/><div class="icell-over">📸</div></div>
+    <div class="icell"><img src="https://picsum.photos/seed/dm-ig4/300/300" alt="IG"/><div class="icell-over">📸</div></div>
+    <div class="icell"><img src="https://picsum.photos/seed/dm-ig5/300/300" alt="IG"/><div class="icell-over">📸</div></div>
+    <div class="icell"><img src="https://picsum.photos/seed/dm-ig6/300/300" alt="IG"/><div class="icell-over">📸</div></div>
+  </div>
+</section>
+
+<!-- EMAIL -->
+<section class="email-section">
+  <div class="email-inner">
+    <p class="eyebrow">Join the movement</p>
+    <h2 class="sec-title">GET 10% OFF YOUR FIRST ORDER</h2>
+    <p>Early access to new drops, exclusive gear, and updates straight to your inbox. No filler. Just fire.</p>
+    <div class="email-form">
+      <input class="email-input" type="email" placeholder="Enter your email address"/>
+      <button class="email-submit">Join Now</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-logo">DRIVEN <span>MIND</span></span>
+      <p>Discipline-built athletic streetwear for the ones who show up anyway. Premium gear. Real purpose.</p>
+      <div class="footer-social">
+        <div class="fsoc">ig</div>
+        <div class="fsoc">tt</div>
+        <div class="fsoc">fb</div>
+        <div class="fsoc">tw</div>
+      </div>
+      <div class="pay-row">
+        <span class="pay">Visa</span><span class="pay">Mastercard</span><span class="pay">Shop Pay</span><span class="pay">Apple Pay</span><span class="pay">Google Pay</span><span class="pay">PayPal</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Men's Tees</a></li>
+        <li><a href="#">Men's Hoodies</a></li>
+        <li><a href="#">Men's Joggers</a></li>
+        <li><a href="#">Men's Shorts</a></li>
+        <li><a href="#">Women's Collection</a></li>
+        <li><a href="#">Hats & Headwear</a></li>
+        <li><a href="#">Accessories</a></li>
+        <li><a href="#">Sale</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Collections</h4>
+      <ul>
+        <li><a href="#">Arena Collection</a></li>
+        <li><a href="#">Flagship Collection</a></li>
+        <li><a href="#">Compression Wear</a></li>
+        <li><a href="#">Gym Bags</a></li>
+        <li><a href="#">Tank Tops</a></li>
+        <li><a href="#">Long Sleeves</a></li>
+        <li><a href="#">Jackets & Zip-Ups</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Help & Info</h4>
+      <ul>
+        <li><a href="#">Size Guide</a></li>
+        <li><a href="#">Shipping Policy</a></li>
+        <li><a href="#">Returns & Replacements</a></li>
+        <li><a href="#">Track My Order</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">The Manifesto</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Driven Mind Apparel. All rights reserved.</span>
+    <span>Discipline Over Motivation.</span>
+  </div>
+</footer>
+
+<div class="chat">💬</div>
+</body>
+</html>
